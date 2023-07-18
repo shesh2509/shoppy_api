@@ -33,6 +33,11 @@ app.use("/api/carts", cartRoute);
 app.use("/api/orders", orderRoute);
 app.use('/payment', require('./routes/stripe'));
 
+app.use("/", (req,res) => {
+    res.setHeader("Access-Control-Allow-Credentials", "true");
+    res.send("API is Running...");
+});
+
 // app.use("/api/checkout", stripeRoute);
 
 app.listen(process.env.PORT || 5000, () => {
