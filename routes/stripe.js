@@ -26,9 +26,6 @@ const Razorpay = require("razorpay");
 const router = express.Router();
 const crypto = require("crypto");
 
-const cart = JSON.parse(localStorage.getItem("persist:root"))?.cart;
-const amount = cart && JSON.parse(cart).amount;
-
 router.post("/orders", async (req, res) => {
     try {
 
@@ -43,7 +40,7 @@ router.post("/orders", async (req, res) => {
         });
 
          const options = {
-            amount: amount * 100, // amount in smallest currency unit
+            amount: 200 * 100, // amount in smallest currency unit
             currency: "INR",
             receipt: "receipt_order_74394",
         };
