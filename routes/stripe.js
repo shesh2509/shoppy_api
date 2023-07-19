@@ -34,13 +34,14 @@ router.post("/orders", async (req, res) => {
       //  addtocart.forEach((elem)=>{
       //   sum+= elem.
       //  })
+        const total = req.body.total;
         const instance = new Razorpay({
             key_id: process.env.RAZORPAY_KEY_ID,
             key_secret: process.env.RAZORPAY_SECRET,
         });
 
          const options = {
-            amount: 200 * 100, // amount in smallest currency unit
+            amount: total * 100, // amount in smallest currency unit
             currency: "INR",
             receipt: "receipt_order_74394",
         };
